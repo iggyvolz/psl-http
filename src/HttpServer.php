@@ -28,7 +28,7 @@ class HttpServer extends BaseHttp
                 try {
                     $method = self::readWord($connection);
                     $path = self::readWord($connection);
-                    $httpVersion = substr(self::readWord($connection), 5);
+                    $httpVersion = substr(self::readLine($connection), 5);
                     $headers = self::extractHeaders($connection);
                     $serverRequest = new ServerRequest($method, $path, $headers, $connection->getStream(), $httpVersion);
                     $response = $this->requestHandler->handle($serverRequest);

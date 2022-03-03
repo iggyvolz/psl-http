@@ -53,7 +53,7 @@ abstract class BaseHttp
         while (($line = self::readLine($connection)) !== "") {
             if (str_contains($line, ":")) {
                 $key = trim(substr($line, 0, strpos($line, ":")));
-                $value = trim(substr($line, strpos($line, ":")));
+                $value = trim(substr($line, strpos($line, ":") + 1));
                 $headers[$key] ??= [];
                 $headers[$key][] = $value;
             }
