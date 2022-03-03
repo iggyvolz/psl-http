@@ -2,7 +2,7 @@
   "name": "iggyvolz/psl-http",
   "description": "HTTP client and server based on PSL",
   "license": "0BSD",
-  "minimum-stability": "rc",
+  "minimum-stability": "RC",
   "authors": [
     {
       "name": "Katie Volz",
