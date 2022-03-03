@@ -13,7 +13,7 @@ class HttpServer extends BaseHttp
 {
     public function __construct(
         private readonly RequestHandlerInterface $requestHandler,
-        public readonly string $host,
+        public readonly string $host = "0.0.0.0",
         public readonly int $port = 80,
         public readonly ?ServerOptions $serverOptions = null,
     )
