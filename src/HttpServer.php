@@ -38,7 +38,6 @@ class HttpServer extends BaseHttp
                 } catch (\Throwable) {
                     $connection->write("HTTP/0.9 500 Internal Server Error\r\n\r\n");
                     $connection->close();
-                    $connection->close();
                 }
             });
         }
