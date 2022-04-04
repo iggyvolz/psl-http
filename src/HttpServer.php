@@ -34,7 +34,11 @@ class HttpServer extends BaseHttp
                     $response = $this->requestHandler->handle($serverRequest);
                     $connection->writeAll(format("HTTP/%s %d %s\r\n", $response->getProtocolVersion(), $response->getStatusCode(), $response->getReasonPhrase()));
                     self::writeMessage($response, $connection);
-                    $connection->close();
+                    if($response instanceof AfterMessageHandler) {
+                        $response->handle($connection);
+                    } else {
+                        $connection->close();
+                    }
                 } catch (\Throwable) {
                     $connection->write("HTTP/0.9 500 Internal Server Error\r\n\r\n");
                     $connection->close();
