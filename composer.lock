@@ -4,21 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "67086afaa4d453839e812e6f2115744d",
+    "content-hash": "71018e9f764740e1e428ee1565506791",
     "packages": [
         {
             "name": "azjezz/psl",
-            "version": "2.0.0-rc2",
+            "version": "dev-tcp-tls",
             "source": {
                 "type": "git",
-                "url": "https://github.com/azjezz/psl.git",
-                "reference": "21bf0cd3d6d6055fc88541e9b24f3140bd179b2d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/azjezz/psl/zipball/21bf0cd3d6d6055fc88541e9b24f3140bd179b2d",
-                "reference": "21bf0cd3d6d6055fc88541e9b24f3140bd179b2d",
-                "shasum": ""
+                "url": "https://github.com/iggyvolz/psl.git",
+                "reference": "cfb713cdebe8869670460b0ff6967ae43096b9f3"
             },
             "require": {
                 "ext-bcmath": "*",
@@ -27,17 +21,17 @@
                 "ext-mbstring": "*",
                 "ext-sodium": "*",
                 "php": "~8.1.0",
-                "revolt/event-loop": "~0.2.0"
+                "revolt/event-loop": "dev-main"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.4.0",
-                "php-coveralls/php-coveralls": "^2.5",
-                "php-standard-library/psalm-plugin": "^2.0.0",
-                "phpbench/phpbench": "^1.2.2",
-                "phpunit/phpunit": "^9.5.10",
+                "php-coveralls/php-coveralls": "^2.5.2",
+                "php-standard-library/psalm-plugin": "^2.0.2",
+                "phpbench/phpbench": "^1.2.3",
+                "phpunit/phpunit": "^9.5.16",
                 "roave/infection-static-analysis-plugin": "1.13.x-dev",
-                "squizlabs/php_codesniffer": "^3.6.1",
-                "vimeo/psalm": "^4.11.2"
+                "squizlabs/php_codesniffer": "^3.6.2",
+                "vimeo/psalm": "^4.21.0"
             },
             "suggest": {
                 "php-standard-library/psalm-plugin": "Psalm integration"
@@ -50,14 +44,21 @@
                 }
             },
             "autoload": {
-                "files": [
-                    "src/bootstrap.php"
-                ],
                 "psr-4": {
                     "Psl\\": "src/Psl"
+                },
+                "files": [
+                    "src/bootstrap.php"
+                ]
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Psl\\Tests\\Benchmark\\": "tests/benchmark",
+                    "Psl\\Tests\\StaticAnalysis\\": "tests/static-analysis",
+                    "Psl\\Tests\\Unit\\": "tests/unit",
+                    "Psl\\Tests\\Fixture\\": "tests/fixture"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -68,17 +69,7 @@
                 }
             ],
             "description": "PHP Standard Library",
-            "support": {
-                "issues": "https://github.com/azjezz/psl/issues",
-                "source": "https://github.com/azjezz/psl/tree/2.0.0-rc2"
-            },
-            "funding": [
-                {
-                    "url": "https://opencollective.com/php-standard-library",
-                    "type": "open_collective"
-                }
-            ],
-            "time": "2022-01-15T00:22:29+00:00"
+            "time": "2022-05-03T19:36:11+00:00"
         },
         {
             "name": "nyholm/psr7",
@@ -480,7 +471,7 @@
         },
         {
             "name": "revolt/event-loop",
-            "version": "v0.2.4",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/revoltphp/event-loop.git",
@@ -501,6 +492,7 @@
                 "phpunit/phpunit": "^9",
                 "psalm/phar": "^4.7"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -553,9 +545,11 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "RC",
-    "stability-flags": [],
-    "prefer-stable": false,
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "azjezz/psl": 20
+    },
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "8.1.*"

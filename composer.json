@@ -2,7 +2,8 @@
   "name": "iggyvolz/psl-http",
   "description": "HTTP client and server based on PSL",
   "license": "0BSD",
-  "minimum-stability": "RC",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "authors": [
     {
       "name": "Katie Volz",
@@ -11,7 +12,7 @@
   ],
   "require": {
     "php": "8.1.*",
-    "azjezz/psl": "^2.0",
+    "azjezz/psl": "dev-tcp-tls",
     "psr/http-server-handler": "^1.0",
     "psr/http-client": "^1.0",
     "nyholm/psr7": "^1.5",
@@ -21,5 +22,11 @@
     "psr-4": {
       "iggyvolz\\pslhttp\\": "src/"
     }
-  }
+  },
+  "repositories": [
+    {
+      "url": "https://github.com/iggyvolz/psl.git",
+      "type": "git"
+    }
+  ]
 }
