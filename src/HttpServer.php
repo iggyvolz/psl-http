@@ -43,6 +43,8 @@ class HttpServer extends BaseHttp
                     } else {
                         $connection->close();
                     }
+                } catch(\Psl\IO\Exception\RuntimeException) {
+                    try { $connection->close(); } catch(\Throwable) {}
                 } catch (\Throwable $e) {
                     $this->logger->error("$method $path 500: $e");
                     $connection->write("HTTP/1.1 500 Internal Server Error\r\n\r\n");
